@@ -3,26 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Buku; // Wajib dipanggil untuk mengambil data buku
+use App\Models\Buku;
+use App\Models\Kategori;
 
 class BukuController extends Controller
 {
-    /**
-     * Menampilkan daftar data buku.
-     */
     public function index()
     {
-        // Ambil semua data buku beserta relasi kategorinya
-        // Menggunakan with('kategori') agar nama kategori bisa dipanggil langsung
         $buku = Buku::with('kategori')->get(); 
-        
-        // Kirim data ke file view 'buku/index.blade.php'
         return view('buku.index', compact('buku'));
     }
 
     public function create()
     {
-        $kategori = Kategori::all(); // Ambil semua kategori untuk form pilihan (dropdown)
+        $kategori = Kategori::all();
         return view('buku.create', compact('kategori'));
     }
 
@@ -48,7 +42,7 @@ class BukuController extends Controller
     public function edit($id)
     {
         $buku = Buku::findOrFail($id);
-        $kategori = Kategori::all(); // Tetap ambil kategori untuk dropdown
+        $kategori = Kategori::all();
         return view('buku.edit', compact('buku', 'kategori'));
     }
 
