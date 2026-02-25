@@ -7,7 +7,7 @@ class Kategori extends Model
 
 {
 protected $table = 'kategori';
-protected $primaryKey = 'idkategori'; // Penting untuk PostgreSQL update/delete
+protected $primaryKey = 'idkategori';
 protected $guarded = [];
-public $timestamps = false; // Opsional jika tabel tidak pakai created_at
+public $timestamps = false;
 }
