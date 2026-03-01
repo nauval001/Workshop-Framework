@@ -43,9 +43,12 @@
                         </span>
                     @enderror
                   </div>
-                  
-                  <div class="mt-3 d-grid gap-2">
-                    <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">SIGN IN</button>
+
+                  <div class="mt-3 d-flex gap-2">
+                    <button type="submit" class="btn btn-gradient-primary btn-lg font-weight-medium auth-form-btn flex-fill">SIGN IN</button>
+                    <a href="{{ route('google.login') }}" class="btn btn-danger btn-lg font-weight-medium auth-form-btn flex-fill d-flex justify-content-center align-items-center">
+                        <i class="mdi mdi-google me-2"></i> Google
+                    </a>
                   </div>
                   
                   <div class="my-2 d-flex justify-content-between align-items-center">
@@ -54,8 +57,7 @@
                         <input type="checkbox" name="remember" class="form-check-input" id="remember" {{ old('remember') ? 'checked' : '' }}> Ingat Saya 
                       </label>
                     </div>
-                  </div>
-                  
+
                   <div class="text-center mt-4 font-weight-light"> Belum punya akun? <a href="{{ route('register') }}" class="text-primary">Buat Akun</a>
                   </div>
                 </form>
