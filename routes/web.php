@@ -1,5 +1,7 @@
 <?php
 
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Http\Controllers\BarangController;
 use App\Http\Controllers\PdfController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -46,3 +48,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/generate-sertifikat', [PdfController::class, 'sertifikat'])->name('pdf.sertifikat');
 Route::get('/generate-undangan', [PdfController::class, 'undangan'])->name('pdf.undangan');
+
+Route::resource('barang', BarangController::class);
+Route::post('/barang/cetak-label', [BarangController::class, 'cetakLabel'])->name('barang.cetak');

@@ -35,5 +35,12 @@
       </a>
     </li>
 
+    <li class="nav-item {{ request()->is('barang*') ? 'active' : '' }}">
+      <a class="nav-link" href="{{ url('/barang') }}">
+        <span class="menu-title">Barang UMKM</span>
+        <i class="mdi mdi-package-variant menu-icon"></i>
+      </a>
+    </li>
+
   </ul>
 </nav>
