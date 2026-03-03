@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="page-header">
-    <h3 class="page-title"> Tambah Barang UMKM </h3>
+    <h3 class="page-title"> Tambah Barang </h3>
 </div>
 
 <div class="row">

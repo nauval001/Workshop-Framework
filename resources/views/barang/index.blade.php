@@ -7,7 +7,7 @@
     <h3 class="page-title">
         <span class="page-title-icon bg-gradient-primary text-white me-2">
             <i class="mdi mdi-package-variant"></i>
-        </span> Data Barang UMKM
+        </span> Data Barang
     </h3>
 </div>
 
@@ -15,7 +15,7 @@
     <div class="col-lg-12">
         <div class="card bg-gradient-info text-white">
             <div class="card-body">
-                <h4 class="card-title text-white">Cetak Label Harga (Tom n Jerry No. 108)</h4>
+                <h4 class="card-title text-white">Cetak Label Harga (Tom & Jerry No. 108)</h4>
                 <p>Silakan centang barang pada tabel di bawah, lalu tentukan posisi awal kertas label yang kosong.</p>
                 
                 <form id="printForm" action="{{ route('barang.cetak') }}" method="POST" target="_blank" class="d-flex align-items-center gap-3">

@@ -13,7 +13,7 @@ class Barang extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    // Ini adalah pengganti Trigger BEFORE INSERT untuk men-generate ID otomatis
+    
     protected static function boot()
     {
         parent::boot();
