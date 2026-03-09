@@ -5,7 +5,7 @@
 <style>
     @page {
         size: A4 portrait;
-        margin: 10.65mm 10.65mm;
+        margin: 210mm 165mm;
     }
 
     * {
@@ -45,7 +45,6 @@
         padding: 1mm 1mm;
     }
 
-    /* Tampilan untuk label yang dikosongkan/di-skip */
     table.label-sheet td.empty {
         border: 0.3pt dashed #dddddd;
         background: #fafafa;
