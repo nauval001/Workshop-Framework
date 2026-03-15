@@ -14,21 +14,6 @@
       </a>
     </li>
     
-    <li class="nav-item">
-  <a class="nav-link" data-bs-toggle="collapse" href="#modul-js" aria-expanded="false" aria-controls="modul-js">
-    <span class="menu-title">JQuery</span>
-    <i class="menu-arrow"></i>
-    <i class="mdi mdi-language-javascript menu-icon"></i>
-  </a>
-  <div class="collapse" id="modul-js">
-    <ul class="nav flex-column sub-menu">
-      <li class="nav-item"> <a class="nav-link" href="{{ route('js.html') }}">HTML Table</a></li>
-      <li class="nav-item"> <a class="nav-link" href="{{ route('js.dt') }}">DataTables</a></li>
-      <li class="nav-item"> <a class="nav-link" href="{{ route('js.select') }}">Select & Select2</a></li>
-    </ul>
-  </div>
-</li>
-    
     <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
       <a class="nav-link" href="{{ url('/') }}">
         <span class="menu-title">Dashboard</span>
@@ -55,6 +40,35 @@
         <span class="menu-title">Barang</span>
         <i class="mdi mdi-package-variant menu-icon"></i>
       </a>
+    </li>
+
+    <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#modul-js" aria-expanded="false" aria-controls="modul-js">
+      <span class="menu-title">JQuery</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-language-javascript menu-icon"></i>
+    </a>
+      <div class="collapse" id="modul-js">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{{ route('js.html') }}">HTML Table</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{ route('js.dt') }}">DataTables</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{ route('js.select') }}">Select & Select2</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#modul-ajax" aria-expanded="false" aria-controls="modul-ajax">
+        <span class="menu-title">AJAX & Axios</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-swap-horizontal menu-icon"></i>
+      </a>
+      <div class="collapse" id="modul-ajax">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{{ route('ajax.wilayah') }}">Wilayah Administrasi</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{ route('ajax.pos') }}">Kasir (POS)</a></li>
+          </ul>
+      </div>
     </li>
 
   </ul>

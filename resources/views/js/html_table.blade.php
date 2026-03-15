@@ -37,7 +37,7 @@
     <div class="col-md-8 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Daftar Barang Sementara (Klik baris untuk aksi)</h4>
+                <h4 class="card-title">Daftar Barang Sementara</h4>
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover" id="tabelBarang">
                         <thead class="bg-light">

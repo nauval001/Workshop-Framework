@@ -8,6 +8,8 @@ use App\Http\Controllers\PdfController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\PosController;
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'index'])->name('login');
@@ -40,11 +42,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/generate-sertifikat', [PdfController::class, 'sertifikat'])->name('pdf.sertifikat');
@@ -60,4 +57,9 @@ Route::prefix('js')->group(function () {
 Route::get('/html-table', [JsController::class, 'htmlTable'])->name('js.html');
 Route::get('/datatables', [JsController::class, 'datatables'])->name('js.dt');
 Route::get('/select', [JsController::class, 'select'])->name('js.select');
+
+Route::get('/ajax/wilayah', [AjaxController::class, 'wilayah'])->name('ajax.wilayah');
+Route::get('/ajax/pos', [PosController::class, 'index'])->name('ajax.pos');
+Route::post('/ajax/pos/cari', [PosController::class, 'cariBarang'])->name('ajax.pos.cari');
+Route::post('/ajax/pos/bayar', [PosController::class, 'bayar'])->name('ajax.pos.bayar');
 });
