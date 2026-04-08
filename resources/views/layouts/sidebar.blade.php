@@ -23,7 +23,7 @@
 
     <li class="nav-item {{ request()->is('kategori*') ? 'active' : '' }}">
       <a class="nav-link" href="{{ url('/kategori') }}">
-        <span class="menu-title">Kategori</span>
+        <span class="menu-title">Kategori Buku</span>
         <i class="mdi mdi-format-list-bulleted menu-icon"></i>
       </a>
     </li>
@@ -70,6 +70,20 @@
           </ul>
       </div>
     </li>
+
+    <li class="nav-item">
+  <a class="nav-link" href="{{ route('vendor.index') }}">
+    <span class="menu-title">Panel Vendor Kantin</span>
+    <i class="mdi mdi-store menu-icon"></i>
+  </a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link" href="{{ route('customer.index') }}">
+    <span class="menu-title">Pesan Makan (Customer)</span>
+    <i class="mdi mdi-food menu-icon"></i>
+  </a>
+</li>
 
   </ul>
 </nav>

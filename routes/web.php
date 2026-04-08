@@ -10,6 +10,8 @@ use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\PosController;
+use App\Http\Controllers\VendorController;
+use App\Http\Controllers\CustomerController;
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'index'])->name('login');
@@ -62,4 +64,20 @@ Route::get('/ajax/wilayah', [AjaxController::class, 'wilayah'])->name('ajax.wila
 Route::get('/ajax/pos', [PosController::class, 'index'])->name('ajax.pos');
 Route::post('/ajax/pos/cari', [PosController::class, 'cariBarang'])->name('ajax.pos.cari');
 Route::post('/ajax/pos/bayar', [PosController::class, 'bayar'])->name('ajax.pos.bayar');
+
+Route::prefix('vendor')->group(function () {
+    Route::get('/', [VendorController::class, 'index'])->name('vendor.index');
+    Route::post('/menu', [VendorController::class, 'storeMenu'])->name('vendor.storeMenu');
+});
+
+Route::prefix('customer')->group(function () {
+    Route::get('/', [CustomerController::class, 'index'])->name('customer.index');
+    Route::get('/get-menus/{idvendor}', [CustomerController::class, 'getMenus'])->name('customer.getMenus'); 
+    Route::post('/checkout', [CustomerController::class, 'checkout'])->name('customer.checkout');
+});
+    Route::post('/payment-success', [CustomerController::class, 'paymentSuccess'])->name('customer.paymentSuccess');
+
+Route::get('/vendor/menu/{id}/edit', [App\Http\Controllers\VendorController::class, 'edit'])->name('vendor.menu.edit');
+Route::put('/vendor/menu/{id}', [App\Http\Controllers\VendorController::class, 'update'])->name('vendor.menu.update');
+Route::delete('/vendor/menu/{id}', [App\Http\Controllers\VendorController::class, 'destroy'])->name('vendor.menu.destroy');
 });

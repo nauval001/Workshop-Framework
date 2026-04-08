@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Buku;
 use App\Models\Barang;
 use App\Models\Penjualan;
 use App\Models\PenjualanDetail;
@@ -10,28 +11,44 @@ use Illuminate\Support\Facades\DB;
 
 class PosController extends Controller
 {
-    // Menampilkan halaman POS
     public function index()
     {
         return view('ajax.pos');
     }
 
-    // Fungsi untuk AJAX/Axios mencari barang saat ditekan Enter
     public function cariBarang(Request $request)
     {
-        $barang = Barang::where('id_barang', $request->kode)->first();
+            $kode = $request->kode;
+            $barang = Barang::where('id_barang', $kode)->first();
         
-        if ($barang) {
-            return response()->json([
-                'status' => 'success',
-                'data' => $barang
+            if ($barang) {
+                return response()->json([
+                    'status' => 'success',
+                    'data' => [
+                        'id_barang' => $barang->id_barang,
+                        'nama' => $barang->nama,
+                        'harga' => $barang->harga
+                ]
             ]);
         }
 
-        return response()->json([
-            'status' => 'error',
-            'message' => 'Barang tidak ditemukan!'
-        ]);
+            $buku = Buku::where('kode', $kode)->first();
+        
+            if ($buku) {
+                return response()->json([
+                    'status' => 'success',
+                    'data' => [
+                        'id_barang' => $buku->kode,
+                        'nama' => $buku->judul,
+                        'harga' => $buku->harga ?? 0 
+                ]
+            ]);
+        }
+
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Kode Barang atau Buku tidak ditemukan!'
+            ]);
     }
 
     public function bayar(Request $request)
