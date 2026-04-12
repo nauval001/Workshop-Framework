@@ -118,6 +118,19 @@
             
             @if($item)
             <td class="label-cell">
+                <div class="label-box">
+    @php
+        $generator = new Picqer\Barcode\BarcodeGeneratorPNG();
+        // Menghasilkan barcode tipe 128
+        $barcode = base64_encode($generator->getBarcode($barang->id_barang, $generator::TYPE_CODE_128));
+    @endphp
+    
+    <img src="data:image/png;base64,{{ $barcode }}" alt="Barcode" style="width: 120px; height: 30px;">
+    
+    <p style="text-align: center; font-weight: bold; margin-top: 5px;">
+        {{ $barang->id_barang }}
+    </p>
+</div>
                 <div class="label-id">{{ $item->id_barang }}</div>
                 <div class="label-name">{{ substr($item->nama, 0, 22) }}</div> <div class="label-price">
                     Rp {{ number_format($item->harga, 0, ',', '.') }}

@@ -104,6 +104,7 @@
                             <tr>
                                 <th>Waktu Pemesanan</th>
                                 <th>Nama Customer</th>
+                                <th>QR Code</th>
                                 <th>Menu Dipilih</th>
                                 <th>Jumlah</th>
                                 <th>Pendapatan</th>
@@ -114,6 +115,9 @@
                             <tr>
                                 <td>{{ \Carbon\Carbon::parse($order->updated_at)->diffForHumans() }}</td>
                                 <td><strong>{{ $order->nama_pembeli }}</strong></td>
+                                <td>
+    {!! \SimpleSoftwareIO\QrCode\Facades\QrCode::size(60)->generate($order->idpesanan) !!}
+</td>
                                 <td>{{ $order->nama_menu }}</td>
                                 <td>{{ $order->jumlah }} Porsi</td>
                                 <td>Rp {{ number_format($order->subtotal, 0, ',', '.') }}</td>

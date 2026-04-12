@@ -80,4 +80,13 @@ Route::prefix('customer')->group(function () {
 Route::get('/vendor/menu/{id}/edit', [App\Http\Controllers\VendorController::class, 'edit'])->name('vendor.menu.edit');
 Route::put('/vendor/menu/{id}', [App\Http\Controllers\VendorController::class, 'update'])->name('vendor.menu.update');
 Route::delete('/vendor/menu/{id}', [App\Http\Controllers\VendorController::class, 'destroy'])->name('vendor.menu.destroy');
+
+Route::prefix('data-customer')->group(function () {
+    Route::get('/', [App\Http\Controllers\DataCustomerController::class, 'index'])->name('customer.data');
+    Route::get('/tambah-1', [App\Http\Controllers\DataCustomerController::class, 'createBlob'])->name('customer.tambah1');
+    Route::post('/tambah-1', [App\Http\Controllers\DataCustomerController::class, 'storeBlob'])->name('customer.store1');
+
+    Route::get('/tambah-2', [App\Http\Controllers\DataCustomerController::class, 'createPath'])->name('customer.tambah2');
+    Route::post('/tambah-2', [App\Http\Controllers\DataCustomerController::class, 'storePath'])->name('customer.store2');
+});
 });

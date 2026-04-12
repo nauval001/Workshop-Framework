@@ -20,7 +20,7 @@ class VendorController extends Controller
             ->join('menus', 'detail_pesanans.idmenu', '=', 'menus.idmenu')
             ->where('menus.idvendor', $vendor->idvendor)
             ->where('pesanans.status_bayar', 'Lunas')
-            ->select('pesanans.nama as nama_pembeli', 'pesanans.updated_at', 'menus.nama_menu', 'detail_pesanans.jumlah', 'detail_pesanans.subtotal')
+            ->select('pesanans.idpesanan', 'pesanans.nama as nama_pembeli', 'pesanans.updated_at', 'menus.nama_menu', 'detail_pesanans.jumlah', 'detail_pesanans.subtotal')
             ->orderBy('pesanans.updated_at', 'desc')
             ->get();
         

@@ -85,5 +85,20 @@
   </a>
 </li>
 
+<li class="nav-item">
+  <a class="nav-link" data-bs-toggle="collapse" href="#ui-customer" aria-expanded="false" aria-controls="ui-customer">
+    <span class="menu-title">Customer</span>
+    <i class="menu-arrow"></i>
+    <i class="mdi mdi-account-multiple menu-icon"></i>
+  </a>
+  <div class="collapse" id="ui-customer">
+    <ul class="nav flex-column sub-menu">
+      <li class="nav-item"> <a class="nav-link" href="{{ route('customer.data') }}">Data Customer</a></li>
+      <li class="nav-item"> <a class="nav-link" href="{{ route('customer.tambah1') }}">Tambah Customer 1</a></li>
+      <li class="nav-item"> <a class="nav-link" href="{{ route('customer.tambah2') }}">Tambah Customer 2</a></li>
+    </ul>
+  </div>
+</li>
+
   </ul>
 </nav>
