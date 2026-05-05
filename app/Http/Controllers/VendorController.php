@@ -95,4 +95,14 @@ class VendorController extends Controller
 
         return redirect()->route('vendor.index')->with('success', 'Menu berhasil dihapus!');
     }
+public function cekPesanan($idpesanan) {
+      $detail = \Illuminate\Support\Facades\DB::table('pesanan')
+          ->join('detail_pesanan', 'pesanan.idpesanan', '=', 'detail_pesanan.idpesanan')
+          ->join('menus', 'detail_pesanan.idmenu', '=', 'menus.idmenu')
+          ->where('pesanan.idpesanan', $idpesanan)
+          ->select('menus.nama_menu', 'pesanan.status_bayar')
+          ->get();
+          
+      return response()->json($detail);
+  }
 }

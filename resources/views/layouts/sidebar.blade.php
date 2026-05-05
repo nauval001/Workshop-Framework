@@ -100,5 +100,19 @@
   </div>
 </li>
 
+<li class="nav-item">
+    <a class="nav-link" href="{{ route('customer.riwayat') }}">
+        <span class="menu-title">Riwayat & QR Pesanan</span>
+        <i class="mdi mdi-history menu-icon"></i>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link" href="{{ route('vendor.scan') }}">
+        <span class="menu-title">Validasi QR (Vendor)</span>
+        <i class="mdi mdi-qrcode-scan menu-icon"></i>
+    </a>
+</li>
+
   </ul>
 </nav>

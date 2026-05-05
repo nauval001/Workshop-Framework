@@ -104,4 +104,8 @@ class CustomerController extends Controller
         
         return response()->json(['status' => 'success']);
     }
+    public function riwayat() {
+    $pesanans = \App\Models\Pesanan::orderBy('created_at', 'desc')->get();
+    return view('customer.riwayat', compact('pesanans'));
+    }
 }

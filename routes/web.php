@@ -89,4 +89,17 @@ Route::prefix('data-customer')->group(function () {
     Route::get('/tambah-2', [App\Http\Controllers\DataCustomerController::class, 'createPath'])->name('customer.tambah2');
     Route::post('/tambah-2', [App\Http\Controllers\DataCustomerController::class, 'storePath'])->name('customer.store2');
 });
+
+Route::get('/scan-barang', function () {
+    return view('scanner.barcode');
+});
+
+Route::get('/api/barang/{id}', function ($id) {
+    $barang = \App\Models\Barang::where('id_barang', $id)->first();
+    return response()->json($barang);
+});
+Route::get('/customer/riwayat', [App\Http\Controllers\CustomerController::class, 'riwayat'])->name('customer.riwayat');
+Route::get('/vendor/scan', function () { return view('vendor.scan'); })->name('vendor.scan');
+Route::get('/api/pesanan/{idpesanan}', [App\Http\Controllers\VendorController::class, 'cekPesanan']);
+
 });
