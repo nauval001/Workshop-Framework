@@ -102,4 +102,10 @@ Route::get('/customer/riwayat', [App\Http\Controllers\CustomerController::class,
 Route::get('/vendor/scan', function () { return view('vendor.scan'); })->name('vendor.scan');
 Route::get('/api/pesanan/{idpesanan}', [App\Http\Controllers\VendorController::class, 'cekPesanan']);
 
+Route::get('/kunjungan-toko', [App\Http\Controllers\KunjunganController::class, 'index'])->name('kunjungan.index');
+Route::post('/api/kunjungan/validasi', [App\Http\Controllers\KunjunganController::class, 'validasiKunjungan']);
+
+Route::get('/kunjungan/toko', [App\Http\Controllers\KunjunganController::class, 'listToko'])->name('kunjungan.list');
+Route::post('/kunjungan/toko/simpan', [App\Http\Controllers\KunjunganController::class, 'storeToko'])->name('kunjungan.store');
+Route::get('/kunjungan/toko/{barcode}/cetak', [App\Http\Controllers\KunjunganController::class, 'cetakBarcode'])->name('kunjungan.cetak');
 });

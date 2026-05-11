@@ -114,5 +114,19 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a class="nav-link" href="{{ route('kunjungan.index') }}">
+        <span class="menu-title">Kunjungan Toko</span>
+        <i class="mdi mdi-map-marker-radius menu-icon"></i>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link" href="{{ route('kunjungan.list') }}">
+        <span class="menu-title">Daftar / List Toko</span>
+        <i class="mdi mdi-store menu-icon"></i>
+    </a>
+</li>
+
   </ul>
 </nav>
